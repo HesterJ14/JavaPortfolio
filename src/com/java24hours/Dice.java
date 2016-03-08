@@ -1,6 +1,7 @@
 package com.java24hours;
 
 import java.util.*;
+//this is imported in order for program to refer to the random class
 
 class Dice {
     public static void main(String[] arguments) { 
