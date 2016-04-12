@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
  
 public class LottoMadness extends JFrame {
+    LottoEvent lotto = new LottoEvent(this);
 
     // set up row 1
     JPanel row1 = new JPanel();
@@ -44,6 +45,12 @@ public class LottoMadness extends JFrame {
         GridLayout layout = new GridLayout(5, 1, 10, 10);
         setLayout(layout);
         
+        // Add listeners
+        quickpick.addItemListener(lotto);
+        personal.addItemListener(lotto);
+        stop.addActionListener(lotto);
+        play.addActionListener(lotto);
+        reset.addActionListener(lotto);
         FlowLayout layout1 = new FlowLayout(FlowLayout.CENTER,
             10, 10);
         option.add(quickpick);
@@ -98,7 +105,8 @@ public class LottoMadness extends JFrame {
         years.setEditable(false);
         row4.add(years);
         add(row4);
-         
+        
+                 
         setVisible(true);
     }
      
@@ -106,7 +114,7 @@ public class LottoMadness extends JFrame {
         try {
             UIManager.setLookAndFeel(
                 "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"
-                              );
+            );
         } catch (Exception exc) {
             // ignore error
         }
